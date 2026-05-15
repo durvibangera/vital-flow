@@ -252,6 +252,3 @@ vital-flow/
               Streamlit · Plotly · Databricks · Delta Lake · Parquet
 ```
 
----
-
-*VITAL-Flow v1.1 — NHANES 2015-16 cycle I · 7-file merge · Prefect-orchestrated · Databricks-deployed*
