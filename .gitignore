@@ -27,3 +27,6 @@ quality/great_expectations/uncommitted/
 # OS
 .DS_Store
 Thumbs.db
+
+# IDE Prompt
+VITAL-Flow_IDE_PROMPT.md
