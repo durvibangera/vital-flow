@@ -1,0 +1,45 @@
+paths:
+  # NHANES 2015-16 (cycle I) — 6 source files
+  # Download all from: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/<FILENAME>.XPT
+  raw_nhanes_demo:   "raw_data/DEMO_I.XPT"     # Demographics: SEQN, age, sex
+  raw_nhanes_biopro: "raw_data/BIOPRO_I.XPT"   # Biochemistry: fasting glucose (LBXSGLU)
+  raw_nhanes_diq:    "raw_data/DIQ_I.XPT"      # Diabetes questionnaire: DIQ010 label
+  raw_nhanes_ghb:    "raw_data/GHB_I.XPT"      # Glycohemoglobin: HbA1c (LBXGH)
+  raw_nhanes_bpx:    "raw_data/BPX_I.XPT"      # Blood pressure: systolic (BPXOSY1)
+  raw_nhanes_bmx:    "raw_data/BMX_I.XPT"      # Body measures: BMI (BMXBMI)
+  # Optional — download if available:
+  raw_nhanes_ins:    "raw_data/INS_I.XPT"      # Insulin: LBXIN
+  raw_uci:           "raw_data/diabetes.csv"
+  bronze_nhanes:     "bronze/nhanes"
+  bronze_uci:        "bronze/uci"
+  silver:            "silver/harmonized"
+  gold:              "gold/validated"
+  quarantine:        "quarantine/failed_records"
+  ingestion_log:     "logs/ingestion_log.csv"
+  ge_reports:        "quality/reports"
+
+pipeline:
+  pipeline_version: "1.1.0"
+  nhanes_cycle: "2015-2016"
+  nhanes_cycle_suffix: "I"
+
+clinical_bounds:
+  age_min: 0
+  age_max: 120
+  bmi_min: 10.0
+  bmi_max: 80.0
+  glucose_mmol_min: 1.0
+  glucose_mmol_max: 35.0
+  bp_systolic_min: 40
+  bp_systolic_max: 250
+  insulin_min: 0
+  insulin_max: 1000
+  min_gold_rows: 1000
+  min_patient_id_uniqueness: 0.99
+
+uci_impossible_zero_columns:
+  - Glucose
+  - BloodPressure
+  - SkinThickness
+  - Insulin
+  - BMI
